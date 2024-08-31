@@ -2,8 +2,8 @@ generator client {
   provider = "prisma-client-js"
 }
 datasource db {
-  provider = "postgresql" //อย่าลืมเปลี่ยนเป็น provider สำหรับ postgresql
-  url      = env("DATABASE_URL") //อย่าลืมเปลี่ยนเป็น DATABASE_URL ตาม .ENV
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
