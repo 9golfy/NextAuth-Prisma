@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql" //อย่าลืมเปลี่ยนเป็น provider สำหรับ postgresql
+  url      = env("DATABASE_URL") //อย่าลืมเปลี่ยนเป็น DATABASE_URL ตาม .ENV
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  role          String    @default("member") // Add a role field
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
